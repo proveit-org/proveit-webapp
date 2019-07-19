@@ -1,0 +1,8 @@
+<div *ngIf="!finished">
+  <input type="file" ngf [(file)]="file" accept="application/pdf" />
+  <button mat-raised-button color="primary" *ngIf="file" (click)="processFile(file)">Record</button>
+</div>
+
+<div *ngIf="finished">
+  <h2>Your hash has been successfully added to the ledger.</h2>
+</div>
