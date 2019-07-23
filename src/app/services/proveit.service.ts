@@ -23,6 +23,13 @@ export class ProveitService {
       );
   }
 
+  verify(hash: string) {
+    return this.http.get(environment.api + 'prove', { params: { hash } })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError = (error: HttpErrorResponse) => {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -33,10 +40,16 @@ export class ProveitService {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
-      console.log(this)
-      this.snackBar.open(error.error, 'Error')
+      console.log(this);
+      switch (error.error) {
+        case 'DUPLICATE_ENTRY':
+          this.snackBar.open('This document has already been registered', 'Warning', { duration: 5000});
+          break;
+        default:
+          this.snackBar.open(error.error, 'Error', { duration: 5000});
+      }
     }
     // return an observable with a user-facing error message
     return throwError(error.error);
-  };
+  }
 }

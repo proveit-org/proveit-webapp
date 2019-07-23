@@ -4,6 +4,13 @@
     proveIt!
   </h1>
 </div>
-<proveit-create-proof></proveit-create-proof>
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab label="Create">
+    <proveit-create-proof></proveit-create-proof>
+  </mat-tab>
+  <mat-tab label="Verify">
+    <proveit-verify-proof></proveit-verify-proof>
+  </mat-tab>
+</mat-tab-group>
 
 <router-outlet></router-outlet>

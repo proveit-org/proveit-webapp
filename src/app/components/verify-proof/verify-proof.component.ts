@@ -1,16 +1,17 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SHA256 } from 'crypto-js';
 import { ProveitService } from '../../services/proveit.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'proveit-open-document',
-  templateUrl: './open-document.component.html',
-  styleUrls: ['./open-document.component.scss']
+  selector: 'proveit-verify-proof',
+  templateUrl: './verify-proof.component.html',
+  styleUrls: ['./verify-proof.component.scss']
 })
-export class OpenDocumentComponent implements OnInit {
+export class VerifyProofComponent implements OnInit {
 
   finished = false;
+  proofs: any = {};
 
   constructor(
     private proveIt: ProveitService,
@@ -20,27 +21,22 @@ export class OpenDocumentComponent implements OnInit {
   ngOnInit() {
   }
 
-  processFile(file: File) {
+  verifyFile(file: File) {
     console.log(file.name, file.size);
     let reader = new FileReader();
     reader.onload = async (event: {target}) => {
       const data = event.target.result;
       const hash = SHA256(data);
       try {
-        const response = await this.proveIt.store(hash).toPromise();
-        if (response === 'SUCCESS') {
-          this.snackBar.open('File registered successfully!', 'Success', { duration: 5000 });
-        }
+        const response = await this.proveIt.verify(hash).toPromise();
+        this.proofs = JSON.parse(JSON.stringify(response)).proofs;
+        this.snackBar.open('File proof received', 'Success', { duration: 5000 });
         this.finished = true;
       } catch (error) {
         console.log(error);
       }
     };
     reader.readAsBinaryString(file);
-  }
-
-  reset() {
-    this.finished = false;
   }
 
 }
