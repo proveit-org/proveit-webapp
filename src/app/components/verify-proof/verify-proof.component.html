@@ -18,7 +18,9 @@
                     <mat-icon>check_circle</mat-icon>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <proveit-proof-path [path]="proof.path" [root]="proof.root"></proveit-proof-path>
+            <proveit-proof-path [path]="proof.path" [root]="proof.root" [hash]="hash"></proveit-proof-path>
         </mat-expansion-panel>
     </mat-accordion>
+    <br>
+    <button mat-raised-button color="primary" (click)="reset()">Verify another</button>
 </div>

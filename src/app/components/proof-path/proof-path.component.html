@@ -1,7 +1,12 @@
-<div *ngFor="let branch of path">
-    <div>Parent: {{branch.parent}}</div>
-    <div>Left: {{branch.left}}</div>
-    <div>Right: {{branch.right}}</div>
+<div>Hash of your file: <b>{{hash}}</b></div>
+<br>
+<h2>Steps:</h2>
+<div *ngFor="let step of steps; let i = index">
+    <h4>Step {{i+1}}</h4>
+    <div>Operation: {{step.op}}</div>
+    <div>Parameters: {{step.params}}</div>
+    <div>Result: {{step.res}}</div>
     <br>
 </div>
+
 <div>Root: {{root}}</div>
