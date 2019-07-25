@@ -1,6 +1,9 @@
 <div *ngIf="!finished">
-  <input type="file" #inputFile ngf [(file)]="file" accept="application/pdf" />
-  <button mat-raised-button color="primary" *ngIf="file" (click)="processFile(file)">Record</button>
+  <input type="file" name="file" accept="application/pdf" (change)="files = $event.target.files">
+  <mat-checkbox [(ngModel)]="upload">Save the file online</mat-checkbox>
+  <div>
+    <button mat-raised-button color="primary" *ngIf="files" (click)="processFile(files)">Record</button>
+  </div>
 </div>
 
 <div *ngIf="finished">

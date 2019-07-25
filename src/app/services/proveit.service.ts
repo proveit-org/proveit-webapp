@@ -16,8 +16,15 @@ export class ProveitService {
   ) {
   }
 
-  store(hash: string) {
+  store(hash: string, meta: any) {
     return this.http.get(environment.api + 'store', { params: { hash }, responseType: 'text' })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  storeFile(formData: any) {
+    return this.http.post(environment.api + 'store', formData)
       .pipe(
         catchError(this.handleError)
       );

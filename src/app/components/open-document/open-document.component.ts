@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class OpenDocumentComponent implements OnInit {
 
   finished = false;
+  upload = false;
 
   constructor(
     private proveIt: ProveitService,
@@ -20,23 +21,49 @@ export class OpenDocumentComponent implements OnInit {
   ngOnInit() {
   }
 
-  processFile(file: File) {
-    console.log(file.name, file.size);
+  async processFile(files: FileList) {
+    const file = files.item(0);
     let reader = new FileReader();
     reader.onload = async (event: {target}) => {
       const data = event.target.result;
-      const hash = SHA256(data);
-      try {
-        const response = await this.proveIt.store(hash).toPromise();
-        if (response === 'SUCCESS') {
-          this.snackBar.open('File registered successfully!', 'Success', { duration: 5000 });
-        }
-        this.finished = true;
-      } catch (error) {
-        console.log(error);
+      const hash = SHA256(data) + '';
+
+      if (this.upload) {
+        this.uploadHashAndFile(hash, file);
+      } else {
+        this.uploadHash(hash);
       }
     };
     reader.readAsBinaryString(file);
+  }
+
+  async uploadHash(hash: string) {
+    const meta = {};
+    try {
+      const response = await this.proveIt.store(hash, meta).toPromise();
+      if (response === 'SUCCESS') {
+        this.snackBar.open('File registered successfully!', 'Success', { duration: 5000 });
+      }
+      this.finished = true;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async uploadHashAndFile(hash: string, file) {
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    formData.append('hash', hash);
+
+    try {
+      const response = await this.proveIt.storeFile(formData).toPromise();
+      if (response) {
+        this.snackBar.open('File uploaded successfully!', 'Success', { duration: 5000 });
+      }
+      this.finished = true;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   reset() {
