@@ -18,6 +18,10 @@
         </div>
 
         <div *ngIf="finished">
+            <mat-form-field *ngIf="hasPassword">
+                <input type="password" matInput placeholder="Password (required)" [(ngModel)]="password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" *ngIf="hasFile" (click)="download(hash, password)" [disabled]="hasPassword && !password">Download</button>
             <h2>Proofs:</h2>
             <mat-accordion class="example-headers-align">
                 <mat-expansion-panel *ngFor="let proof of proofs">
@@ -32,10 +36,6 @@
                             <mat-icon>check_circle</mat-icon>
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <mat-form-field *ngIf="hasPassword">
-                        <input type="password" matInput placeholder="Password (required)" [(ngModel)]="password">
-                    </mat-form-field>
-                    <button mat-raised-button color="primary" *ngIf="hasFile" (click)="download(hash)">Download</button>
                     <proveit-proof-path [path]="proof.path" [root]="proof.root" [hash]="hash"></proveit-proof-path>
                 </mat-expansion-panel>
             </mat-accordion>

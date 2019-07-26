@@ -37,8 +37,14 @@ export class ProveitService {
       );
   }
 
-  download(hash: string) {
-    return this.http.get(environment.api + 'download', { params: { hash }, responseType: 'arraybuffer' })
+  download(hash: string, password: string) {
+    const params: any = {
+      hash
+    };
+    if (password) {
+      params.password = password;
+    }
+    return this.http.get(environment.api + 'download', { params, responseType: 'arraybuffer' })
       .pipe(
         catchError(this.handleError)
       );

@@ -49,9 +49,9 @@ export class VerifyProofComponent implements OnInit {
     }
   }
 
-  async download(hash: string) {
+  async download(hash: string, password: string) {
     try {
-      const response = await this.proveIt.download(hash).toPromise();
+      const response = await this.proveIt.download(hash, password).toPromise();
       this.proveIt.downLoadFile(response, 'application/pdf');
     } catch (error) {
       console.log(error);
