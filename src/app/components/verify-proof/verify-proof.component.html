@@ -2,6 +2,11 @@
 <div *ngIf="!finished">
     <input type="file" #inputFile ngf [(file)]="file" accept="application/pdf" />
     <button mat-raised-button color="primary" *ngIf="file" (click)="verifyFile(file)">Verify</button>
+    OR
+    <mat-form-field>
+        <input type="text" matInput placeholder="File hash" [(ngModel)]="hash">
+    </mat-form-field>
+    <button mat-raised-button color="primary" *ngIf="hash" (click)="verifyFileFromHash(hash)">Verify</button>
 </div>
 
 <div *ngIf="finished">
@@ -18,6 +23,7 @@
                     <mat-icon>check_circle</mat-icon>
                 </mat-panel-description>
             </mat-expansion-panel-header>
+            <button mat-raised-button color="primary" *ngIf="hasFile" (click)="download(hash)">Download</button>
             <proveit-proof-path [path]="proof.path" [root]="proof.root" [hash]="hash"></proveit-proof-path>
         </mat-expansion-panel>
     </mat-accordion>

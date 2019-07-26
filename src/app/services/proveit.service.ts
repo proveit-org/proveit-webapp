@@ -37,6 +37,27 @@ export class ProveitService {
       );
   }
 
+  download(hash: string) {
+    return this.http.get(environment.api + 'download', { params: { hash }, responseType: 'arraybuffer' })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Method is use to download file.
+   * @param data - Array Buffer data
+   * @param type - type of the document.
+   */
+  downLoadFile(data: any, type: string) {
+    const blob = new Blob([data], { type });
+    const url = window.URL.createObjectURL(blob);
+    const pwa = window.open(url);
+    if (!pwa || pwa.closed || typeof pwa.closed === 'undefined') {
+        alert( 'Please disable your Pop-up blocker and try again.');
+    }
+  }
+
   private handleError = (error: HttpErrorResponse) => {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
