@@ -17,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { MatInputModule } from '@angular/material/input';
     MatCheckboxModule,
     FormsModule,
     MatInputModule,
+    MatCardModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

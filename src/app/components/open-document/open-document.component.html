@@ -4,6 +4,7 @@
 
   <mat-form-field *ngIf="files && upload">
     <input type="password" matInput placeholder="Password (optionnal)" [(ngModel)]="password">
+    <mat-hint>You can in addition add a password. In that case, you will need both the hash and the password to download the file</mat-hint>
   </mat-form-field>
   
   <div>

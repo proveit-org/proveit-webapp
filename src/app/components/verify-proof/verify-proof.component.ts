@@ -14,6 +14,7 @@ export class VerifyProofComponent implements OnInit {
   proofs: any = {};
   hash: string;
   hasFile = false;
+  hasPassword = false;
 
   constructor(
     private proveIt: ProveitService,
@@ -40,6 +41,7 @@ export class VerifyProofComponent implements OnInit {
       const result = JSON.parse(JSON.stringify(response));
       this.proofs = result.proofs;
       this.hasFile = result.hasFile;
+      this.hasPassword = result.hasPassword;
       this.snackBar.open('File proof received', 'Success', { duration: 5000 });
       this.finished = true;
     } catch (error) {
@@ -60,6 +62,7 @@ export class VerifyProofComponent implements OnInit {
     this.finished = false;
     this.hash = '';
     this.hasFile = false;
+    this.hasPassword = false;
   }
 
 }

@@ -1,32 +1,48 @@
-<h2>Verify your document on the blockchain</h2>
-<div *ngIf="!finished">
-    <input type="file" #inputFile ngf [(file)]="file" accept="application/pdf" />
-    <button mat-raised-button color="primary" *ngIf="file" (click)="verifyFile(file)">Verify</button>
-    OR
-    <mat-form-field>
-        <input type="text" matInput placeholder="File hash" [(ngModel)]="hash">
-    </mat-form-field>
-    <button mat-raised-button color="primary" *ngIf="hash" (click)="verifyFileFromHash(hash)">Verify</button>
-</div>
-
-<div *ngIf="finished">
-    <h2>Proofs:</h2>
-    <mat-accordion class="example-headers-align">
-        <mat-expansion-panel *ngFor="let proof of proofs">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{proof.blockchain}}
-                </mat-panel-title>
-                <mat-panel-description *ngIf="proof.blockchain == 'metaverse-testnet'">
-                    <a href="http://explorer-testnet.mvs.org/tx/{{proof.txid}}" target="_blank">Metaverse official
-                        explorer</a>
-                    <mat-icon>check_circle</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <button mat-raised-button color="primary" *ngIf="hasFile" (click)="download(hash)">Download</button>
-            <proveit-proof-path [path]="proof.path" [root]="proof.root" [hash]="hash"></proveit-proof-path>
-        </mat-expansion-panel>
-    </mat-accordion>
+<div fxFlex="10"></div>
+<div fxFlex>
     <br>
-    <button mat-raised-button color="primary" (click)="reset()">Verify another</button>
+    <mat-card>
+        <h2>Verify your document on the blockchain</h2>
+        <div *ngIf="!finished">
+            <div fxFlex="40" fxLayoutAlign="center center">
+                <input type="file" #inputFile ngf [(file)]="file" accept="application/pdf" />
+                <button mat-raised-button color="primary" [disabled]="!file" (click)="verifyFile(file)">Verify</button>
+            </div>
+            <div fxFlex="20" fxLayoutAlign="center center">OR</div>
+            <div fxFlex="40" fxLayoutAlign="center center">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="File hash" [(ngModel)]="hash">
+                </mat-form-field>
+                <button mat-raised-button color="primary" [disabled]="!hash" (click)="verifyFileFromHash(hash)">Verify</button>
+            </div>
+        </div>
+
+        <div *ngIf="finished">
+            <h2>Proofs:</h2>
+            <mat-accordion class="example-headers-align">
+                <mat-expansion-panel *ngFor="let proof of proofs">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{proof.blockchain}}
+                        </mat-panel-title>
+                        <mat-panel-description *ngIf="proof.blockchain == 'metaverse-testnet'">
+                            <a href="http://explorer-testnet.mvs.org/tx/{{proof.txid}}" target="_blank">Metaverse
+                                official
+                                explorer</a>
+                            <mat-icon>check_circle</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-form-field *ngIf="hasPassword">
+                        <input type="password" matInput placeholder="Password (required)" [(ngModel)]="password">
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" *ngIf="hasFile" (click)="download(hash)">Download</button>
+                    <proveit-proof-path [path]="proof.path" [root]="proof.root" [hash]="hash"></proveit-proof-path>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <br>
+            <button mat-raised-button color="primary" (click)="reset()">Verify another</button>
+        </div>
+    </mat-card>
+    <br>
 </div>
+<div fxFlex="10"></div>
