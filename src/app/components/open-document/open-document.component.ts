@@ -12,6 +12,7 @@ export class OpenDocumentComponent implements OnInit {
 
   finished = false;
   upload = false;
+  password = '';
 
   constructor(
     private proveIt: ProveitService,
@@ -23,7 +24,7 @@ export class OpenDocumentComponent implements OnInit {
 
   async processFile(files: FileList) {
     const file = files.item(0);
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = async (event: {target}) => {
       const data = event.target.result;
       const hash = SHA256(data) + '';
@@ -54,10 +55,13 @@ export class OpenDocumentComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', file, file.name);
     formData.append('hash', hash);
+    if (this.password) {
+      formData.append('password', this.password);
+    }
 
     try {
       const response = await this.proveIt.storeFile(formData).toPromise();
-      if (response) {
+      if (response === 'SUCCESS') {
         this.snackBar.open('File uploaded successfully!', 'Success', { duration: 5000 });
       }
       this.finished = true;

@@ -24,7 +24,7 @@ export class VerifyProofComponent implements OnInit {
 
   verifyFile(file: File) {
     console.log(file.name, file.size);
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = async (event: {target}) => {
       const data = event.target.result;
       this.hash = SHA256(data) + '';

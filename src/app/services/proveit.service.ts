@@ -24,7 +24,7 @@ export class ProveitService {
   }
 
   storeFile(formData: any) {
-    return this.http.post(environment.api + 'store', formData)
+    return this.http.post(environment.api + 'store', formData, { responseType: 'text'})
       .pipe(
         catchError(this.handleError)
       );
