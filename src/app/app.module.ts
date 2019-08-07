@@ -9,6 +9,7 @@ import { CreateProofComponent } from './components/create-proof/create-proof.com
 import { VerifyProofComponent } from './components/verify-proof/verify-proof.component';
 import { OpenDocumentComponent } from './components/open-document/open-document.component';
 import { ProofPathComponent } from './components/proof-path/proof-path.component';
+import { FeatureComponent } from './components/feature/feature.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -27,6 +28,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     VerifyProofComponent,
     OpenDocumentComponent,
     ProofPathComponent,
+    FeatureComponent,
   ],
   imports: [
     MatButtonModule,

@@ -1,16 +1,105 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="container even-container">
   <h1>
     proveIt!!!!
   </h1>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Create">
+      <proveit-create-proof></proveit-create-proof>
+    </mat-tab>
+    <mat-tab label="Verify">
+      <proveit-verify-proof></proveit-verify-proof>
+    </mat-tab>
+  </mat-tab-group>
+  <router-outlet></router-outlet>
 </div>
-<mat-tab-group mat-stretch-tabs>
-  <mat-tab label="Create">
-    <proveit-create-proof></proveit-create-proof>
-  </mat-tab>
-  <mat-tab label="Verify">
-    <proveit-verify-proof></proveit-verify-proof>
-  </mat-tab>
-</mat-tab-group>
 
-<router-outlet></router-outlet>
+<div class="container odd-container">
+  <h2 class="section-title">What is proveit?</h2>
+
+  <div class="row">
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Record evidence'" [text]="'Simple, intuitive interface to record evidence. Very low transaction cost guarantees easy access to everyone.'"></app-feature>
+    </div>
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Immutable ledger'" [text]="'Fingerprints (hash) of documents get stored on the public Blockchain. We store data for future generations. so redundancy of multiple Blockchains is our key to maximise the integrity of our proof system.'"></app-feature>
+    </div>
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Transparent independent validation'" [text]="'Easily prove the authenticity of your documents and enable third parties to verify the information independently.'"></app-feature>
+    </div>
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Privacy'" [text]="'Your document fingerprints don’t allow recreation of your original document content. Which data you want to publish is fully in your hands.'"></app-feature>
+    </div>
+  </div>
+
+</div>
+
+<div class="container even-container">
+  <h2 class="section-title">How does it work?</h2>
+
+  <div class="row">
+    <div fxFlex="40">
+      <app-feature [icon]="'done'" [title]="'Record'" [text]="'We calculate a fingerprint (hash) of your document. This fingerprint will be added to our processing queue. Optionally
+      we will store your document as well as its meta data on a cloud storage.'"></app-feature>
+    </div>
+    <div fxFlex="30">
+      <app-feature [icon]="'done'" [title]="'Write'" [text]="'On a regular basis we group multiple fingerprints into a merkle tree. The root hash of that tree will then be written
+      to the Metaverse Blockchain.'"></app-feature>
+    </div>
+    <div fxFlex="40">
+      <app-feature [icon]="'done'" [title]="'Proof'" [text]="'In order to proof the timestamp of your document independently we will provide you with the proof path through the
+      merkle tree as well as the Blockchain transaction as a proof of record.'"></app-feature>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container odd-container">
+  <h2 class="section-title">Who are we?</h2>
+
+  <div class="row">
+    <div fxFlex="40">
+      1
+    </div>
+    <div fxFlex="30">
+      2
+    </div>
+    <div fxFlex="40">
+      3
+    </div>
+  </div>
+
+  <div class="row">
+    <div fxFlex="40">
+      4
+    </div>
+    <div fxFlex="30">
+      5
+    </div>
+    <div fxFlex="40">
+      6
+    </div>
+  </div>
+
+</div>
+
+<div class="container even-container">
+  <h2 class="section-title">Metaverse</h2>
+
+  <div class="row">
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Public Blockchain with high grade of decentralization'"></app-feature>
+    </div>
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Expert on asset tokenization'"></app-feature>
+    </div>
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Blockchain as a Service solutions'"></app-feature>
+    </div>
+    <div fxFlex="25">
+      <app-feature [icon]="'done'" [title]="'Open Source development community'"></app-feature>
+    </div>
+  </div>
+
+</div>
