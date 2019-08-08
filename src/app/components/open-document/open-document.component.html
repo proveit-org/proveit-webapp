@@ -13,5 +13,7 @@
 
 <div *ngIf="finished">
   <h2>Your hash has been successfully added to the ledger.</h2>
+  <div>{{hash}}</div>
+  <br>
   <button mat-raised-button color="primary" (click)="reset()">Record another</button>
 </div>

@@ -13,6 +13,7 @@ export class OpenDocumentComponent implements OnInit {
   finished = false;
   upload = false;
   password = '';
+  hash = '';
 
   constructor(
     private proveIt: ProveitService,
@@ -27,12 +28,12 @@ export class OpenDocumentComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = async (event: {target}) => {
       const data = event.target.result;
-      const hash = SHA256(data) + '';
+      this.hash = SHA256(data) + '';
 
       if (this.upload) {
-        this.uploadHashAndFile(hash, file);
+        this.uploadHashAndFile(this.hash, file);
       } else {
-        this.uploadHash(hash);
+        this.uploadHash(this.hash);
       }
     };
     reader.readAsBinaryString(file);
