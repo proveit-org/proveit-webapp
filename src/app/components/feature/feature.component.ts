@@ -23,6 +23,7 @@ import { trigger, state, query, group, style, animate, transition } from '@angul
 export class FeatureComponent implements OnInit {
 
   @Input() icon: string;
+  @Input() img: string;
   @Input() title: string;
   @Input() text: string;
 
@@ -44,7 +45,7 @@ export class FeatureComponent implements OnInit {
     const topScreenPosition = window.pageYOffset;
     const screenHeight = window.outerHeight;
 
-    if (componentPosition > topScreenPosition && componentPosition < (topScreenPosition + 0.8 * screenHeight)) {
+    if (componentPosition > (topScreenPosition) && componentPosition < (topScreenPosition + 0.8 * screenHeight)) {
       this.state = 'show';
     } else {
       this.state = 'hide';

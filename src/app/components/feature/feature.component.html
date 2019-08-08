@@ -1,9 +1,11 @@
 <div class="container" [@scrollAnimation]="state">
 
   <div>
-    <i class="material-icons">
+    <i *ngIf="icon" class="material-icons">
       {{icon}}
     </i>
+
+    <img *ngIf="img" class="image" [src]="img">
 
     <h3>{{title}}</h3>
 
