@@ -14,21 +14,22 @@
   <router-outlet></router-outlet>
 </div>
 
+
 <div class="container odd-container">
   <h2 class="section-title">What is proveit?</h2>
 
-  <div class="row">
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Record evidence'" [text]="'Simple, intuitive interface to record evidence. Very low transaction cost guarantees easy access to everyone.'"></app-feature>
+  <div fxLayout='row wrap'>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'create'" [title]="'Record evidence'" [text]="'Simple, intuitive interface to record evidence. Very low transaction cost guarantees easy access to everyone.'"></app-feature>
     </div>
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Immutable ledger'" [text]="'Fingerprints (hash) of documents get stored on the public Blockchain. We store data for future generations. so redundancy of multiple Blockchains is our key to maximise the integrity of our proof system.'"></app-feature>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'lock'" [title]="'Immutable ledger'" [text]="'Fingerprints (hash) of documents get stored on the public Blockchain. We store data for future generations. so redundancy of multiple Blockchains is our key to maximise the integrity of our proof system.'"></app-feature>
     </div>
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Transparent independent validation'" [text]="'Easily prove the authenticity of your documents and enable third parties to verify the information independently.'"></app-feature>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'people'" [title]="'Transparent independent validation'" [text]="'Easily prove the authenticity of your documents and enable third parties to verify the information independently.'"></app-feature>
     </div>
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Privacy'" [text]="'Your document fingerprints don’t allow recreation of your original document content. Which data you want to publish is fully in your hands.'"></app-feature>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'mail'" [title]="'Privacy'" [text]="'Your document fingerprints don’t allow recreation of your original document content. Which data you want to publish is fully in your hands.'"></app-feature>
     </div>
   </div>
 
@@ -37,17 +38,17 @@
 <div class="container even-container">
   <h2 class="section-title">How does it work?</h2>
 
-  <div class="row">
-    <div fxFlex="40">
-      <app-feature [icon]="'done'" [title]="'Record'" [text]="'We calculate a fingerprint (hash) of your document. This fingerprint will be added to our processing queue. Optionally
+  <div fxLayout='row wrap'>
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="35">
+      <app-feature [icon]="'fingerprint'" [title]="'Record'" [text]="'We calculate a fingerprint (hash) of your document. This fingerprint will be added to our processing queue. Optionally
       we will store your document as well as its meta data on a cloud storage.'"></app-feature>
     </div>
-    <div fxFlex="30">
-      <app-feature [icon]="'done'" [title]="'Write'" [text]="'On a regular basis we group multiple fingerprints into a merkle tree. The root hash of that tree will then be written
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="30">
+      <app-feature [icon]="'device_hub'" [title]="'Write'" [text]="'On a regular basis we group multiple fingerprints into a merkle tree. The root hash of that tree will then be written
       to the Metaverse Blockchain.'"></app-feature>
     </div>
-    <div fxFlex="40">
-      <app-feature [icon]="'done'" [title]="'Proof'" [text]="'In order to proof the timestamp of your document independently we will provide you with the proof path through the
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="35">
+      <app-feature [icon]="'vpn_key'" [title]="'Prove'" [text]="'In order to prove the timestamp of your document independently we will provide you with the proof path through the
       merkle tree as well as the Blockchain transaction as a proof of record.'"></app-feature>
     </div>
   </div>
@@ -58,27 +59,27 @@
 <div class="container odd-container">
   <h2 class="section-title">Who are we?</h2>
 
-  <div class="row">
-    <div fxFlex="40">
-      1
+  <div fxLayout='row wrap'>
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="35">
+      <app-feature [img]="'assets/team/eric_gu.jpeg'" [title]="'Eric Gu'" [text]="'Early crypto adopter, famous investor and advisor for blockchain projects'"></app-feature>
     </div>
-    <div fxFlex="30">
-      2
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="30">
+      <app-feature [img]="'assets/team/christine_duhaime.jpeg'" [title]="'Christine Duhaime'" [text]="'Description of Christine'"></app-feature>
     </div>
-    <div fxFlex="40">
-      3
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="35">
+      <app-feature [img]="'assets/team/tal_zisckind.jpeg'" [title]="'Tal Zisckind'" [text]="'Amazing guy'"></app-feature>
     </div>
   </div>
 
   <div class="row">
-    <div fxFlex="40">
-      4
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="35">
+      <app-feature [img]="'assets/team/sven_mutzl.jpeg'" [title]="'Sven Mutzl'" [text]="'Analyst and full-stack developer with strong experience in blockchain, major in Javascript/Typescript and smart-contracts'"></app-feature>
     </div>
-    <div fxFlex="30">
-      5
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="30">
+      <app-feature [img]="'assets/team/laurent_salou.jpeg'" [title]="'Laurent Salou'" [text]="'Metaverse developer'"></app-feature>
     </div>
-    <div fxFlex="40">
-      6
+    <div fxFlex.lt-md="100" fxFlex.gt-sm="35">
+      <app-feature [img]="'assets/team/emma_hsueh.jpeg'" [title]="'Emma Hsueh'" [text]="'Metaverse developer'"></app-feature>
     </div>
   </div>
 
@@ -87,18 +88,18 @@
 <div class="container even-container">
   <h2 class="section-title">Metaverse</h2>
 
-  <div class="row">
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Public Blockchain with high grade of decentralization'"></app-feature>
+  <div fxLayout='row wrap'>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'wifi_tethering'" [title]="'Public Blockchain with high grade of decentralization'"></app-feature>
     </div>
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Expert on asset tokenization'"></app-feature>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'monetization_on'" [title]="'Expert on asset tokenization'"></app-feature>
     </div>
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Blockchain as a Service solutions'"></app-feature>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'business'" [title]="'Blockchain as a Service solutions'"></app-feature>
     </div>
-    <div fxFlex="25">
-      <app-feature [icon]="'done'" [title]="'Open Source development community'"></app-feature>
+    <div fxFlex.lt-md="100" fxFlex.md="50" fxFlex.gt-md="25">
+      <app-feature [icon]="'public'" [title]="'Open Source development community'"></app-feature>
     </div>
   </div>
 
