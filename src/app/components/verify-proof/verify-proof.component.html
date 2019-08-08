@@ -3,13 +3,13 @@
     <br>
     <mat-card>
         <h2>Verify your document on the blockchain</h2>
-        <div *ngIf="!finished">
-            <div fxFlex="40" fxLayoutAlign="center center">
+        <div fxLayout='row wrap' *ngIf="!finished">
+            <div fxFlex.lt-md="100" fxFlex.gt-sm="40" fxLayoutAlign="center center" class="inputFile">
                 <input type="file" #inputFile ngf [(file)]="file" accept="application/pdf" />
                 <button mat-raised-button color="primary" [disabled]="!file" (click)="verifyFile(file)">Verify</button>
             </div>
-            <div fxFlex="20" fxLayoutAlign="center center">OR</div>
-            <div fxFlex="40" fxLayoutAlign="center center">
+            <div fxFlex.lt-md="100" fxFlex.gt-sm="20" fxLayoutAlign="center center">OR</div>
+            <div fxFlex.lt-md="100" fxFlex.gt-sm="40" fxLayoutAlign="center center" class="inputHash">
                 <mat-form-field>
                     <input type="text" matInput placeholder="File hash" [(ngModel)]="hash">
                 </mat-form-field>
