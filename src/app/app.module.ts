@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { WhitepaperComponent } from './components/whitepaper/whitepaper.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ProofPathComponent,
     FeatureComponent,
     SubscribeComponent,
+    WhitepaperComponent,
   ],
   imports: [
     MatButtonModule,
