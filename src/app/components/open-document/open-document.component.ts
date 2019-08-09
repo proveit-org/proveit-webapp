@@ -14,6 +14,7 @@ export class OpenDocumentComponent implements OnInit {
   upload = false;
   password = '';
   hash = '';
+  loading = false;
 
   constructor(
     private proveIt: ProveitService,
@@ -24,6 +25,7 @@ export class OpenDocumentComponent implements OnInit {
   }
 
   async processFile(files: FileList) {
+    this.loading = true;
     const file = files.item(0);
     const reader = new FileReader();
     reader.onload = async (event: {target}) => {
@@ -47,7 +49,9 @@ export class OpenDocumentComponent implements OnInit {
         this.snackBar.open('File registered successfully!', 'Success', { duration: 5000 });
       }
       this.finished = true;
+      this.loading = false;
     } catch (error) {
+      this.loading = false;
       console.log(error);
     }
   }
@@ -65,8 +69,10 @@ export class OpenDocumentComponent implements OnInit {
       if (response === 'SUCCESS') {
         this.snackBar.open('File uploaded successfully!', 'Success', { duration: 5000 });
       }
+      this.loading = false;
       this.finished = true;
     } catch (error) {
+      this.loading = false;
       console.log(error);
     }
   }

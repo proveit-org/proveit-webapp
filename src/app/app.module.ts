@@ -10,6 +10,7 @@ import { VerifyProofComponent } from './components/verify-proof/verify-proof.com
 import { OpenDocumentComponent } from './components/open-document/open-document.component';
 import { ProofPathComponent } from './components/proof-path/proof-path.component';
 import { FeatureComponent } from './components/feature/feature.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -21,7 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ClipboardModule } from 'ngx-clipboard';
-import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
     MatCardModule,
     FlexLayoutModule,
     ClipboardModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
