@@ -4,11 +4,11 @@
     <mat-card>
         <h2>Verify your document on the blockchain</h2>
         <div fxLayout='row wrap' *ngIf="!finished">
-            <div fxFlex.lt-md="100" fxFlex.gt-sm="40" class="inputFile">
+            <div fxFlex.lt-md="100" fxFlex.gt-sm="40" class="inputFile" fxLayoutAlign="center center">
                 <input type="file" #inputFile ngf [(file)]="file" accept="application/pdf" />
             </div>
             <div fxFlex.lt-md="100" fxFlex.gt-sm="20" fxLayoutAlign="center center">OR</div>
-            <div fxFlex.lt-md="100" fxFlex.gt-sm="40" class="inputHash">
+            <div fxFlex.lt-md="100" fxFlex.gt-sm="40" class="inputHash" fxLayoutAlign="center center">
                 <mat-form-field>
                     <input type="text" matInput placeholder="File hash" [(ngModel)]="hash">
                 </mat-form-field>
