@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ClipboardModule } from 'ngx-clipboard';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     OpenDocumentComponent,
     ProofPathComponent,
     FeatureComponent,
+    SubscribeComponent,
   ],
   imports: [
     MatButtonModule,
