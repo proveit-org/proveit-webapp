@@ -1,5 +1,4 @@
-<div class="container" [@scrollAnimation]="state">
-
+<div class="container" [@scrollAnimation]="{value: state, params: { delay: delay}}">
   <div>
     <i *ngIf="icon" class="material-icons">
       {{icon}}

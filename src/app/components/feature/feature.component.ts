@@ -23,13 +23,22 @@ import { trigger, state, query, group, style, animate, transition } from '@angul
         opacity: 0,
         transform: 'translateX(100%)'
       })),
-      transition('showLeft => hideLeft', animate('700ms ease-out')),
-      transition('hideLeft => showLeft', animate('700ms ease-in')),
-      transition('showRight => hideRight', animate('700ms ease-out')),
-      transition('hideRight => showRight', animate('700ms ease-in'))
+      transition('showLeft => hideLeft', [
+        query(':self', animate('700ms {{delay}}ms ease-out')),
+      ], {params : { delay: 0 }}),
+      transition('hideLeft => showLeft', [
+        query(':self', animate('700ms {{delay}}ms ease-in')),
+      ], {params : { delay: 0 }}),
+      transition('showRight => hideRight', [
+        query(':self', animate('700ms {{delay}}ms ease-out')),
+      ], {params : { delay: 0 }}),
+      transition('hideRight => showRight', [
+        query(':self', animate('700ms {{delay}}ms ease-in')),
+      ], {params : { delay: 0 }})
     ])
   ]
 })
+
 export class FeatureComponent implements OnInit {
 
   @Input() icon: string;
@@ -37,17 +46,18 @@ export class FeatureComponent implements OnInit {
   @Input() title: string;
   @Input() text: string;
   @Input() direction: string;
+  @Input() delay = 0;
 
   state: string;
 
   constructor(
     public el: ElementRef,
   ) {
-    this.state = this.direction === 'right' ? 'hideRight' : 'hideLeft';
+
   }
 
   ngOnInit() {
-
+    this.state = this.direction === 'right' ? 'hideRight' : 'hideLeft';
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -56,7 +66,7 @@ export class FeatureComponent implements OnInit {
     const topScreenPosition = window.pageYOffset;
     const screenHeight = window.outerHeight;
 
-    if (componentPosition > (topScreenPosition - 200) && componentPosition < (topScreenPosition + 0.8 * screenHeight)) {
+    if (componentPosition > (topScreenPosition - 200) && componentPosition < (topScreenPosition + 0.9 * screenHeight)) {
       this.state = this.direction === 'left' ? 'showLeft' : 'showRight';
     } else {
       this.state = this.direction === 'left' ? 'hideLeft' : 'hideRight';
