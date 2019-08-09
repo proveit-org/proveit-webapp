@@ -1,16 +1,22 @@
-<div>
-  <mat-form-field>
-    <input matInput placeholder="First Name">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Last Name">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Email address">
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" (click)="subscribe()">Subscribe</button>
-
+<div fxFlex="50" fxLayoutAlign="center center">
+  <img class="logo" [src]="'assets/images/logo.jpeg'">
 </div>
+
+<form fxFlex="50" [formGroup]="form" (ngSubmit)="subscribe()">
+  
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="firstname">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="lastname">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email address" formControlName="email">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Subscribe</button>
+  <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
+
+</form>
