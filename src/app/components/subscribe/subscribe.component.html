@@ -1,22 +1,28 @@
-<div fxFlex="50" fxLayoutAlign="center center">
-  <img class="logo" [src]="'assets/images/logo.jpeg'">
-</div>
+<h2 class="section-title">Newsletter</h2>
 
-<form fxFlex="50" [formGroup]="form" (ngSubmit)="subscribe()">
+<h4 class="section-title">Stay informed and sign up to our newsletter</h4>
+
+<div fxLayout='row wrap'>
+  <div fxFlex="50" fxLayoutAlign="center center">
+    <img class="logo" [src]="'assets/images/logo.jpeg'">
+  </div>
   
-  <mat-form-field>
-    <input matInput placeholder="First Name" formControlName="firstname">
-  </mat-form-field>
+  <form fxFlex="50" [formGroup]="form" (ngSubmit)="subscribe()">
+    
+    <mat-form-field>
+      <input matInput placeholder="First Name" formControlName="firstname">
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Last Name" formControlName="lastname">
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="lastname">
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Email address" formControlName="email">
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email">
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Subscribe</button>
-  <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Subscribe</button>
+    <mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-bar>
 
-</form>
+  </form>
+</div>
