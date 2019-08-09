@@ -80,7 +80,13 @@ export class ProveitService {
           this.snackBar.open('This document has already been registered', 'Warning', { duration: 5000});
           break;
         default:
-          this.snackBar.open(error.error, 'Error', { duration: 5000});
+          if (typeof error.error === 'string') {
+            this.snackBar.open(error.error, 'Error', { duration: 5000});
+          } else if (error.statusText) {
+            this.snackBar.open(error.statusText, 'Error', { duration: 5000});
+          } else {
+            this.snackBar.open('Unknown error', 'Error', { duration: 5000});
+          }
       }
     }
     // return an observable with a user-facing error message
