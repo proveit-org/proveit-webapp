@@ -15,6 +15,10 @@
         "function": "prove"
       },
       {
+        "source": "/api/signup",
+        "function": "signup"
+      },
+      {
         "source": "/api/store",
         "function": "store"
       },
