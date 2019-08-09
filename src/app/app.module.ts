@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ngfModule } from "angular-file";
+import { ngfModule } from 'angular-file';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatInputModule,
     MatCardModule,
     FlexLayoutModule,
+    ClipboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
