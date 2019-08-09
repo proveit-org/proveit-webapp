@@ -13,7 +13,7 @@ import { trigger, state, query, group, style, animate, transition } from '@angul
       })),
       state('hideLeft', style({
         opacity: 0,
-        transform: 'translateX(-100%)'
+        transform: 'translateX(-20%)'
       })),
       state('showRight', style({
         opacity: 1,
@@ -21,19 +21,19 @@ import { trigger, state, query, group, style, animate, transition } from '@angul
       })),
       state('hideRight', style({
         opacity: 0,
-        transform: 'translateX(100%)'
+        transform: 'translateX(20%)'
       })),
       transition('showLeft => hideLeft', [
-        query(':self', animate('700ms {{delay}}ms ease-out')),
+        query(':self', animate('300ms {{delay}}ms ease-out')),
       ], {params : { delay: 0 }}),
       transition('hideLeft => showLeft', [
-        query(':self', animate('700ms {{delay}}ms ease-in')),
+        query(':self', animate('300ms {{delay}}ms ease-in')),
       ], {params : { delay: 0 }}),
       transition('showRight => hideRight', [
-        query(':self', animate('700ms {{delay}}ms ease-out')),
+        query(':self', animate('300ms {{delay}}ms ease-out')),
       ], {params : { delay: 0 }}),
       transition('hideRight => showRight', [
-        query(':self', animate('700ms {{delay}}ms ease-in')),
+        query(':self', animate('300ms {{delay}}ms ease-in')),
       ], {params : { delay: 0 }})
     ])
   ]
