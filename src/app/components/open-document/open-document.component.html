@@ -6,7 +6,7 @@
     <input type="password" matInput placeholder="Password (optionnal)" [(ngModel)]="password">
   </mat-form-field>
   <div *ngIf="files && upload" class="advice">You can in addition add a password. In that case, you will need both the hash and the password to download the file</div>
-  <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 15px;">
+  <div fxLayout="row" fxLayoutAlign="center center">
     <button type="button" mat-raised-button color="primary" mat-expand *ngIf="files" (click)="processFile(files)" [disabled]="loading">
       Record
     </button>

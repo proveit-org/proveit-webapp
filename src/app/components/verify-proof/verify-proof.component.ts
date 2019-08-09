@@ -15,6 +15,7 @@ export class VerifyProofComponent implements OnInit {
   hash: string;
   hasFile = false;
   hasPassword = false;
+  loading = false;
 
   constructor(
     private proveIt: ProveitService,
@@ -24,8 +25,16 @@ export class VerifyProofComponent implements OnInit {
   ngOnInit() {
   }
 
+  verify(file: File, hash: string) {
+    if (hash) {
+      this.verifyFileFromHash(hash);
+    } else {
+      this.verifyFile(file);
+    }
+  }
+
   verifyFile(file: File) {
-    console.log(file.name, file.size);
+    this.loading = true;
     const reader = new FileReader();
     reader.onload = async (event: {target}) => {
       const data = event.target.result;
@@ -36,6 +45,7 @@ export class VerifyProofComponent implements OnInit {
   }
 
   async verifyFileFromHash(hash: string) {
+    this.loading = true;
     try {
       const response = await this.proveIt.verify(hash).toPromise();
       const result = JSON.parse(JSON.stringify(response));
@@ -44,7 +54,9 @@ export class VerifyProofComponent implements OnInit {
       this.hasPassword = result.hasPassword;
       this.snackBar.open('File proof received', 'Success', { duration: 5000 });
       this.finished = true;
+      this.loading = false;
     } catch (error) {
+      this.loading = false;
       console.log(error);
     }
   }
