@@ -68,8 +68,6 @@ export class FeatureComponent implements OnInit {
 
     if (componentPosition > (topScreenPosition - 200) && componentPosition < (topScreenPosition + 0.9 * screenHeight)) {
       this.state = this.direction === 'left' ? 'showLeft' : 'showRight';
-    } else {
-      this.state = this.direction === 'left' ? 'hideLeft' : 'hideRight';
     }
 
   }
